@@ -101,6 +101,8 @@ def revenue_trend(symbol: str, financials: pd.DataFrame):
     
     buatkan kode python menggunakan matplotlib untuk memvisualisasikan data tersebut dalam bentuk line chart.
 
+    PENTING: Simpan kode dalam variabel bernama 'fig' sehingga dapat dipanggil dengan st.pyplot(fig).
+
     Tulis HANYA kode python tanpa penjelasan tambahan.
 """
     code = clean_python_code(llm.invoke(prompt).content)
@@ -108,7 +110,7 @@ def revenue_trend(symbol: str, financials: pd.DataFrame):
     with st.expander("📊 Visualisasi Tren Pendapatan"):
         exec_locals = {}
         exec(code, {}, exec_locals)
-        #st.pyplot(exec_locals["fig"])
+        st.pyplot(exec_locals["fig"])
 
 
 def trend_analysis(financials: pd.DataFrame):
